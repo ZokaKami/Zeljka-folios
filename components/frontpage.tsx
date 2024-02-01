@@ -16,14 +16,15 @@ function Frontpage() {
   const [isVisible, setIsVisible] = useState(false);
 
   const props = useSpring({
-    from: { y: 0, scale: 1, transform: "translate3d(0,100%,0)" },
-    to: { y: isVisible ? -400 : 0, scale: isVisible ? 1.5 : 1 },
+    from: { y: 0 },
+    to: { y: isVisible ? -450 : 0 },
     config: { duration: 300 },
   });
+
   const springRef = useSpringRef();
   const { anim, ...rest } = useSpring({
     ref: springRef,
-    from: { y: 0, opacity: "1", transform: "translate3d(0,70%,0)" },
+    from: { y: 0, opacity: "1" },
     to: {
       y: isVisible ? -500 : 0,
       opacity: isVisible ? "0" : "1",
@@ -43,7 +44,7 @@ function Frontpage() {
   const testRef = useSpringRef();
   const { test, ...icon } = useSpring({
     ref: testRef,
-    from: { y: 0, opacity: "1", transform: "translate3d(0,300%,0)" },
+    from: { y: 0, opacity: "1" },
     to: {
       y: isVisible ? 500 : 0,
       opacity: isVisible ? "0" : "1",
@@ -56,9 +57,9 @@ function Frontpage() {
   useChain(isVisible ? [testRef, textRef] : [textRef, testRef]);
 
   return (
-    <div className="h-screen w-full text-center overflow-hidden">
-      <div className="w-screen h-screen flex justify-center      min-w-[800px] max-w-[1200px]    mx-auto   ">
-        <div>
+    <div className="height-[100vh] overscroll-y-hidden  overflow-hidden mx-auto">
+      <div className="  h-screen w-full min-w-[600px] max-w-[1400px]   text-center  overflow-hidden flex   mx-auto     ">
+        <div className=" mt-[200px]  mx-auto ">
           <animated.div style={{ ...rest }}>
             <animated.div style={hide}>
               <div className="flex justify-center  ">
@@ -81,6 +82,7 @@ function Frontpage() {
                   <li>Placeholder</li>
                 </ul>
               </div>
+              <div></div>
             </animated.div>
           </animated.div>
           <div>
@@ -91,6 +93,11 @@ function Frontpage() {
               >
                 Gallery
               </button>
+              {isVisible && (
+                <div className="pt-[48px]">
+                  <Gallery />
+                </div>
+              )}
             </animated.div>
           </div>
           <animated.div style={{ ...icon }}>
@@ -121,6 +128,7 @@ function Frontpage() {
           <button className="absolute left-4 top-4">Home</button>
         </div>
       </div>
+      <div></div>
     </div>
   );
 }
