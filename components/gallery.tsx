@@ -5,7 +5,7 @@ import Borzoi from "./images/borzoi.jpg";
 function Gallery() {
   const [openGallery, setOpenGallery] = useState(false);
   return (
-    <div className="w-screen h-screen  justify-center items-center text-center  min-w-[800px] max-w-[1200px] pX-16 py-[24px]  mx-auto ">
+    <div className="w-screen h-screen  justify-center items-center text-center  min-w-[800px] max-w-[1600px] pX-16 py-[24px]  mx-auto ">
       <div className={openGallery ? "hidden" : "block"}>
         <div>
           <div className="flex gallery   justify-content-between justify-between">

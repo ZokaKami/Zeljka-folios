@@ -18,7 +18,7 @@ function Frontpage() {
 
   const props = useSpring({
     from: { y: 0 },
-    to: { y: isVisible ? -450 : 0 },
+    to: { y: isVisible ? -420 : 0 },
     config: { duration: 300 },
   });
 
@@ -58,8 +58,8 @@ function Frontpage() {
   useChain(isVisible ? [testRef, textRef] : [textRef, testRef]);
 
   return (
-    <div className="height-[100vh] overscroll-y-hidden  overflow-hidden mx-auto">
-      <div className="  h-screen w-full min-w-[600px] max-w-[1400px]   text-center  overflow-hidden flex   mx-auto     ">
+    <div className="h-screen overscroll-y-hidden  overflow-hidden mx-auto">
+      <div className="  h-screen w-full min-w-[600px] max-w-[1600px]   text-center  overflow-hidden flex   mx-auto     ">
         <div className=" mt-[200px]  mx-auto ">
           <animated.div style={{ ...rest }}>
             <animated.div style={hide}>
